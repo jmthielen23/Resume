@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jackson Thielen — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-mid: #122040;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d9;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 60px 8% 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .header-name h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .header-name h1 span {
+      color: var(--gold);
+    }
+
+    .header-name .title {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: right;
+    }
+
+    .header-contact a,
+    .header-contact span {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .header-contact a:hover { color: var(--gold-light); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 52px 8% 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 52px;
+      align-items: start;
+    }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 44px; }
+
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ── EXPERIENCE ENTRIES ── */
+    .entry { margin-bottom: 28px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-weight: 500;
+      font-size: 0.97rem;
+      color: var(--navy);
+    }
+
+    .entry-date {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-org {
+      font-size: 0.83rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .entry ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .entry ul li {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: #374151;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .entry ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-entry { margin-bottom: 22px; }
+
+    .edu-school {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .edu-degree {
+      font-size: 0.86rem;
+      color: #374151;
+      margin: 3px 0 2px;
+    }
+
+    .edu-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar section { margin-bottom: 36px; }
+
+    .skill-group { margin-bottom: 14px; }
+
+    .skill-group-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-weight: 400;
+    }
+
+    /* leadership items */
+    .lead-item {
+      font-size: 0.86rem;
+      color: #374151;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--cream-dark);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .lead-item:last-child { border-bottom: none; }
+
+    .lead-item strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* divider line on sidebar top */
+    .sidebar-top-line {
+      width: 32px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header { animation: fadeUp 0.55s ease both; }
+    .page  { animation: fadeUp 0.55s 0.15s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .header-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header>
+  <div class="header-inner">
+    <div class="header-name">
+      <h1>Jackson <span>Thielen</span></h1>
+      <p class="title">Finance &amp; Analytics · Minnetonka, MN</p>
+    </div>
+    <div class="header-contact">
+      <a href="mailto:Jacksonthielen@gmail.com">Jacksonthielen@gmail.com</a>
+      <span>612-300-0098</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ BODY ══════════════ -->
+<div class="page">
+
+  <!-- ── MAIN COLUMN ── -->
+  <main>
+
+    <!-- EDUCATION -->
+    <section>
+      <h2 class="section-label">Education</h2>
+
+      <div class="edu-entry">
+        <div class="edu-school">University of San Francisco</div>
+        <div class="edu-degree">M.S. Entrepreneurship &amp; Innovation · Division I Baseball</div>
+        <div class="edu-meta">San Francisco, CA &nbsp;|&nbsp; August 2025 – Present</div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="edu-school">Gustavus Adolphus College</div>
+        <div class="edu-degree">B.A. Accounting (Finance Focus) · Minor: Spanish · 3.31 GPA</div>
+        <div class="edu-meta">St. Peter, MN &nbsp;|&nbsp; September 2022 – May 2025</div>
+        <div class="edu-meta" style="margin-top:3px;">Dean's Scholarship Recipient &nbsp;·&nbsp; Division III Baseball</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2 class="section-label">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Equity Research Analyst Intern</span>
+          <span class="entry-date">June 2025 – Aug 2025</span>
+        </div>
+        <div class="entry-org">Craig-Hallum Capital Group · Minneapolis, MN</div>
+        <ul>
+          <li>Built DCF valuation models, revenue builds, and EV/EBITDA &amp; P/E comparable analyses from scratch across Clean Tech and Industrial companies.</li>
+          <li>Conducted three-statement financial analysis and primary customer diligence (e.g., RNG adoption in long-haul fleets) to support senior analyst research.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Equity Valuation Project — General Mills</span>
+          <span class="entry-date">April 2025</span>
+        </div>
+        <div class="entry-org">Gustavus Adolphus College</div>
+        <ul>
+          <li>Built a full DCF valuation model using 10-K data, revenue builds, WACC estimation, and scenario &amp; sensitivity analysis across discount rates, growth, and margins.</li>
+          <li>Authored a 10-page equity research report with intrinsic value conclusions, evaluating financial performance, competitive positioning, and ESG considerations.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Investment Portfolio Manager (StockTrak)</span>
+          <span class="entry-date">Sep – Nov 2024</span>
+        </div>
+        <div class="entry-org">Gustavus Adolphus College</div>
+        <ul>
+          <li>Managed a $1M simulated equity portfolio, tracking performance, sector exposure, and position sizing using Excel-based return and risk analysis.</li>
+          <li>Conducted fundamental analysis and weekly portfolio reviews; early identification of Rocket Lab and Lemonade, which later experienced significant appreciation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Baseball Analytics Projects</span>
+          <span class="entry-date">Mar – May 2025</span>
+        </div>
+        <div class="entry-org">Gustavus Adolphus College Baseball</div>
+        <ul>
+          <li>Built advanced pitch movement, usage, velocity, and hard-hit visualizations from Rapsodo data using Excel, SQL, and Tableau for the pitching staff.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">507 Baseball Academy Development Coach</span>
+          <span class="entry-date">June 2023 – May 2025</span>
+        </div>
+        <div class="entry-org">Blizzard Baseball · St. Peter, MN</div>
+        <ul>
+          <li>Designed and implemented youth pitching and hitting programs, including individual lessons and camps.</li>
+          <li>Scheduled facility usage for teams, lessons, and college athletes, ensuring seamless operations.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Project Manager &amp; Founder</span>
+          <span class="entry-date">June 2020 – Aug 2023</span>
+        </div>
+        <div class="entry-org">J&amp;C Lawn Company · Eden Prairie, MN</div>
+        <ul>
+          <li>Founded and scaled a small service business, growing the client base 200%+ while managing pricing, scheduling, and operations.</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-top-line"></div>
+
+    <!-- SKILLS -->
+    <section>
+      <h2 class="section-label">Skills</h2>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Excel &amp; Finance</div>
+        <div class="skill-tags">
+          <span class="tag">DCF Modeling</span>
+          <span class="tag">Revenue Builds</span>
+          <span class="tag">3-Statement Analysis</span>
+          <span class="tag">Sensitivity Analysis</span>
+          <span class="tag">Comparable Analysis</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Data &amp; Analytics</div>
+        <div class="skill-tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">R</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Spanish (Fluent)</span>
+          <span class="tag">English</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section>
+      <h2 class="section-label">Leadership</h2>
+
+      <div class="lead-item">
+        <strong>Money Trees — Founder</strong><br>
+        Student-run nonprofit raising $2,000+; donated $1,000+ toward global reforestation.
+      </div>
+      <div class="lead-item">
+        <strong>Accounting &amp; Finance Club</strong><br>
+        Finance-focused professional development and market discussions.
+      </div>
+      <div class="lead-item">
+        <strong>Fellowship of Christian Athletes</strong><br>
+        Leadership and mentorship within the student-athlete community.
+      </div>
+      <div class="lead-item">
+        <strong>Language Buddies Mentor</strong><br>
+        Supported Spanish language development and cross-cultural learning.
+      </div>
+    </section>
+
+  </aside>
+</div>
+
+</body>
+</html>
